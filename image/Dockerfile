@@ -32,10 +32,10 @@ COPY init.groovy /usr/share/jenkins/ref/init.groovy.d/tcp-slave-agent-port.groov
 
 # jenkins version being bundled in this docker image
 ARG JENKINS_VERSION
-ENV JENKINS_VERSION ${JENKINS_VERSION:-2.46.1}
+ENV JENKINS_VERSION ${JENKINS_VERSION:-2.60.3}
 
 # jenkins.war checksum, download will be validated using it
-ARG JENKINS_SHA=33a3f4d983c6188a332291e1d974afa0a2ee96a0ae3cb6dd4f2098086525f9f1
+ARG JENKINS_SHA=2d71b8f87c8417f9303a73d52901a59678ee6c0eefcf7325efed6035ff39372a
 
 # Can be used to customize where jenkins.war get downloaded from
 ARG JENKINS_URL=https://repo.jenkins-ci.org/public/org/jenkins-ci/main/jenkins-war/${JENKINS_VERSION}/jenkins-war-${JENKINS_VERSION}.war
@@ -77,5 +77,5 @@ COPY ./config/plugins.txt /tmp/plugins.txt
 RUN /usr/local/bin/install-plugins.sh $(cat /tmp/plugins.txt | tr '\n' ' ')
 
 # Install extra plugins
-COPY ./config/plugins_extra.txt /tmp/plugins_extra.txt
-RUN /usr/local/bin/install-plugins.sh $(cat /tmp/plugins_extra.txt  | tr '\n' ' ')
+#COPY ./config/plugins_extra.txt /tmp/plugins_extra.txt
+#RUN /usr/local/bin/install-plugins.sh $(cat /tmp/plugins_extra.txt  | tr '\n' ' ')

@@ -1,8 +1,0 @@
-copyartifact:latest
-dashboard-view:latest
-docker-plugin:latest
-jclouds-jenkins:latest
-msbuild:latest
-token-macro:latest
-hashicorp-vault-plugin:latest
-
